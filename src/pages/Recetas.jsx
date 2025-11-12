@@ -208,7 +208,7 @@ export default function Receta() {
                                     <p className="text-gray-500">Cargando sugerencias...</p>
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
+                                <div className="grid grid-cols-2 gap-4 md:flex md:flex-col">
                                     {suggestions.slice(0, 5).map((suggestion) => (
                                         <div
                                             key={suggestion.idMeal}
