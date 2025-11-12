@@ -1,15 +1,11 @@
-export default function CategoryButtons({
-  categories,
-  loading,
-  error,
-  onSelect,
-}) {
+export default function CategoryButtons() {
+
   if (loading) return <p className="text-gray-400">Cargando categorías...</p>;
   if (error) return <p className="text-red-500">{error}</p>;
 
   return (
     <div className="flex flex-wrap gap-2 mb-6">
-      {categories.map((cat) => (
+      {data.map((cat) => (
         <button
           key={cat.idCategory}
           onClick={() => onSelect(cat.strCategory)}
