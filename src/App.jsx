@@ -1,30 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
 import Receta from './pages/Recetas';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Prueba from './components/Prueba';
-
+import CategoriesContainer from './components/Categories/CategoriesContainer';
 
 function App() {
+
   return (
 
-    <div className="App min-h-screen bg-gray-50">
+    <div className="App min-h-screen flex flex-col bg-gray-50">
       <Header />
 
-      <main className="pt-40">
+      <main className="grow pt-40">
 
-        <Prueba />
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/receta" element={<Receta />} />
+          <Route path="/categorie" element={<CategoriesContainer />} />
         </Routes>
+
       </main>
-
-
       <Footer />
     </div>
 

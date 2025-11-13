@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useFetchMeals } from "./useFetchMeals";
+import { useScrollToSection } from "../useScrollToSection";
 import useFetch from "../../Hooks/useFetch";
 import CategoryButtons from "./CategoryButtons";
 import CategoryResults from "./CategoryResults";
 
+
 export default function CategoriesContainer() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-
 
   const {
     data: categoriesData,

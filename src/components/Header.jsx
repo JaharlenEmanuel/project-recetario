@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import NavDrop from './NavDrop'
 
 export default function Header() {
+
   return (
     <>
       <header className="w-full flex items-center justify-between fixed z-50 gap-4 bg-[#D87800] p-8 text-white">
@@ -19,25 +20,22 @@ export default function Header() {
           <NavDrop />
         </div>
 
-        <nav className="md:flex md:gap-8 md:font-bold hidden">
+
+       <nav className="md:flex md:gap-8 md:font-bold hidden">
           <Link
-            to="/"
+          to={"/"}
             className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
           >
             Home
           </Link>
+
           <Link
-            className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-            to="/Characters"
+          to="/categorie"
+          className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
           >
             Categories
           </Link>
-          <Link
-            className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-            to="/Crews"
-          >
-            About us
-          </Link>
+
         </nav>
 
       </header>
