@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
 import NavDrop from './NavDrop'
+import { useScrollToSection } from './useScrollToSection'
 
-export default function Header() {
+export default function Header({ scrollToSection }) {
+
   return (
     <>
       <header className="w-full flex items-center justify-between fixed z-50 gap-4 bg-gray-500 p-8 text-white">
@@ -20,21 +22,21 @@ export default function Header() {
         </div>
 
        <nav className="md:flex md:gap-8 md:font-bold hidden">
-          <Link
-            to="/"
-            className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-          >
+          <button
+            onClick={scrollToSection}
+            className="hover:bg-white hover:text-red-800 p-2 rounded-2xl">
             Home
-          </Link>
-          <Link
+          </button>
+          <button
             className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-            to="/Characters"
+            /* to="/Characters" */
+            onClick={scrollToSection}
           >
             Categories
-          </Link>
+          </button>
           <Link
             className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-            to="/Crews"
+          
           >
             About us
           </Link>
