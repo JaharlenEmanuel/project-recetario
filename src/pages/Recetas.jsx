@@ -132,8 +132,12 @@ export default function Receta() {
 
                             <div className="grid md:grid-cols-2 gap-6 mb-6">
                                 <img
-                                    src={selectedMeal.strMealThumb}
+                                    src={selectedMeal.strMealThumb || '/placeholder-food.jpg'}
                                     alt={selectedMeal.strMeal}
+                                    onError={(e) => {
+                                        e.target.src = '/placeholder-food.jpg';
+                                        e.target.alt = 'Imagen no disponible';
+                                    }}
                                     className="w-full h-80 object-cover rounded-lg shadow-md"
                                 />
 
