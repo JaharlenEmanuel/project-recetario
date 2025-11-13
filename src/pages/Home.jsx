@@ -9,7 +9,7 @@ export default function Home() {
 
     return (
         <>
-            <div ref={sectionRef}>
+            <div>
                 <SearchBar />
                 <Carousel />
                 <CategoriesContainer />

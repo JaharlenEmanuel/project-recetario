@@ -48,22 +48,14 @@ export default function NavDrop() {
             </li>
             <li>
               <Link
-                to="/Categories"
+                to="/categorie"
                 className="block px-4 py-2 hover:bg-gray-100"
                 onClick={() => setOpen(false)}
               >
                 Categories
               </Link>
             </li>
-            <li>
-              <Link
-                to="/About"
-                className="block px-4 py-2 hover:bg-gray-100"
-                onClick={() => setOpen(false)}
-              >
-                About
-              </Link>
-            </li>
+            
           </ul>
         </div>
       )}
