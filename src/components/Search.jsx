@@ -65,7 +65,7 @@ export default function SearchBar() {
 
             {/* Sugerencias */}
             {showSuggestions && meals.length > 0 && (
-                <div className="absolute top-full left-0 right-0 bg-white shadow-xl rounded-lg mt-2 max-h-80 overflow-y-auto z-10 divide-y border">
+                <div className="absolute top-full left-0 right-0 bg-white shadow-xl rounded-lg mt-2 max-h-80 overflow-y-auto z-40 divide-y border">
                     {meals.slice(0, 5).map((meal) => (
                         <div
                             key={meal.idMeal}
