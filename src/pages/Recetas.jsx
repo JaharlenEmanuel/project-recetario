@@ -202,7 +202,7 @@ export default function Receta() {
 
                     {/* 🔹 COLUMNA DERECHA - SUGERENCIAS */}
                     <div className="lg:col-span-1">
-                        <div className="bg-[#D87800] rounded-lg shadow-lg p-6 sticky top-4">
+                        <div className="bg-[#D87800] rounded-lg shadow-lg p-6 sticky top-[170px]">
                             <h2 className="text-xl font-bold text-gray-800 mb-4">
                                 Más recetas de {selectedMeal.strCategory}
                             </h2>
@@ -212,7 +212,7 @@ export default function Receta() {
                                     <p className="text-gray-500">Cargando sugerencias...</p>
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-2 gap-4 md:flex md:flex-col">
+                                <div className=" gap-4 flex flex-col">
                                     {suggestions.slice(0, 5).map((suggestion) => (
                                         <div
                                             key={suggestion.idMeal}

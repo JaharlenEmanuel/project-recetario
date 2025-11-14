@@ -33,7 +33,7 @@ function Carousel() {
   }
 
   return (
-    <div className="relative w-full sm:w-[90%] md:w-[80%] lg:w-[70%] sm:max-w-md md:max-w-lg lg:max-w-2xl h-72 md:h-80 lg:h-84 mx-auto mt-8 overflow-hidden shadow-lg group rounded-3xl">
+    <div className="relative w-full sm:w-[90%] md:w-[80%] lg:w-[70%] sm:max-w-md md:max-w-lg lg:max-w-2xl h-72 md:h-80 lg:h-84 mx-auto mt-8 overflow-hidden shadow-lg group sm:rounded-3xl">
       {images.map((image, index) => (
         <div
           key={image.idMeal}

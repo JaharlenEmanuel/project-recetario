@@ -22,7 +22,7 @@ export function useFetchMeals(endpoint) {
         if (!res.ok) throw new Error("Error en la petición");
 
         const json = await res.json();
-        setData(json.meals || []);
+        setData(json || []);
       } catch (err) {
         setError(err.message || "Error al cargar datos");
       } finally {

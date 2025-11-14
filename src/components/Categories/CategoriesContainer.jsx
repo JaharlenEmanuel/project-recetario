@@ -4,6 +4,7 @@ import CategoryButtons from "./CategoryButtons";
 import CategoryResults from "./CategoryResults";
 
 
+
 export default function CategoriesContainer() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
@@ -12,15 +13,16 @@ export default function CategoriesContainer() {
     data: categoriesData,
     loading: loadingCategories,
     error: errorCategories
-  } = useFetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+  } = useFetchMeals("https://www.themealdb.com/api/json/v1/1/categories.php");
 
+  console.log("CategoriesData:", categoriesData);
 
   // 🔹 Fetch de recetas por categoría
   const {
     data: mealsData,
     loading: loadingMeals,
     error: errorMeals
-  } = useFetch(
+  } = useFetchMeals(
     selectedCategory
       ? `https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory}`
       : null
