@@ -7,7 +7,7 @@ function Carousel() {
   const { images, currentIndex, isLoading, goToSlide } =
     useCarousel(RANDOM_URL);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
 
   const handleGoToRecipe = (idMeal) => {
@@ -37,9 +37,8 @@ function Carousel() {
       {images.map((image, index) => (
         <div
           key={image.idMeal}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
-            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
           style={{
             backgroundImage: `url("${image.strMealThumb}")`,
             backgroundSize: "cover",
@@ -68,16 +67,15 @@ function Carousel() {
         </div>
       ))}
 
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-50">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-48">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full border border-white transition-all duration-300 ${
-              index === currentIndex
+            className={`w-3 h-3 rounded-full border border-white transition-all duration-300 ${index === currentIndex
                 ? "bg-white scale-125"
                 : "bg-gray-400 hover:bg-white/70"
-            }`}
+              }`}
           ></button>
         ))}
       </div>
