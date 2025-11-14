@@ -4,7 +4,6 @@ import Receta from './pages/Recetas';
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Prueba from './components/Prueba';
 import CategoriesContainer from './components/Categories/CategoriesContainer';
 
 function App() {
