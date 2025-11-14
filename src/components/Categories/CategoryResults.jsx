@@ -40,10 +40,15 @@ export default function CategoryResults({
 
   // 🔹 Renderizado de los resultados
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-      {meals.map((meal) => (
-        <MealCard key={meal.idMeal} meal={meal} />
-      ))}
+    <div>
+      <h3 className="text-xl font-semibold mb-4 text-gray-800">
+        Recetas de {selectedCategory} ({meals.length})
+      </h3>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {meals.map((meal) => (
+          <MealCard key={meal.idMeal} meal={meal} />
+        ))}
+      </div>
     </div>
   );
 }

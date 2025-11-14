@@ -1,6 +1,6 @@
 export default function CategoryButtons({ data, loading, error, onSelect }) {
   if (loading) return <p className="text-gray-400">Cargando categorías...</p>;
-  if (error) return <p className="text-red-500">{error}</p>;
+  if (error) return <p className="text-red-500">Error: {error.message}</p>;
 
   if (!data || data.length === 0)
     return <p className="text-gray-500">No hay categorías disponibles.</p>;
