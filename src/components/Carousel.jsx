@@ -9,7 +9,6 @@ function Carousel() {
 
   const navigate = useNavigate();
 
-
   const handleGoToRecipe = (idMeal) => {
     navigate(`/receta?id=${idMeal}`);
   };
@@ -33,12 +32,13 @@ function Carousel() {
   }
 
   return (
-    <div className="relative w-full sm:w-[90%] md:w-[80%] lg:w-[70%] sm:max-w-md md:max-w-lg lg:max-w-2xl h-72 md:h-80 lg:h-84 mx-auto mt-8 overflow-hidden shadow-lg group sm:rounded-3xl">
+    <div className="relative w-full sm:w-[90%] md:w-[80%] lg:w-[70%] sm:max-w-md md:max-w-lg lg:max-w-2xl h-72 md:h-80 lg:h-84 mx-auto mt-8 overflow-hidden shadow-lg group sm:rounded-3xl z-30">
       {images.map((image, index) => (
         <div
           key={image.idMeal}
-          className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+          className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
+            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
           style={{
             backgroundImage: `url("${image.strMealThumb}")`,
             backgroundSize: "cover",
@@ -67,15 +67,17 @@ function Carousel() {
         </div>
       ))}
 
-      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-48">
+      {/* 🔥 PUNTITOS corregidos (z-20) */}
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full border border-white transition-all duration-300 ${index === currentIndex
+            className={`w-3 h-3 rounded-full border border-white transition-all duration-300 ${
+              index === currentIndex
                 ? "bg-white scale-125"
                 : "bg-gray-400 hover:bg-white/70"
-              }`}
+            }`}
           ></button>
         ))}
       </div>
