@@ -1,39 +1,28 @@
-import { useNavigate } from "react-router-dom";
-
-export default function MealCard({ meal }) {
-  const navigate = useNavigate();
+export default function MealCard({ meal, onSelect }) {
+  if (!meal) return null; // Evita errores si meal no llega correctamente
 
   const handleClick = () => {
-    navigate(`/receta?id=${meal.idMeal}`);
-  };
-
-  // Función para manejar errores de imagen
-  const handleImageError = (e) => {
-    e.target.src = '/placeholder-food.jpg'; // Ruta de tu imagen predeterminada
-    e.target.alt = 'Imagen no disponible';
-    e.target.classList.add('opacity-50'); // Opcional: reducir opacidad para indicar que es placeholder
+    if (onSelect) onSelect(meal); // Permite conectar con la vista de detalles
   };
 
   return (
     <div
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer border border-gray-100"
       onClick={handleClick}
+      className="bg-white rounded-xl shadow-md overflow-hidden 
+                 hover:scale-105 hover:shadow-xl transition-transform 
+                 cursor-pointer group"
     >
       <img
-        src={meal.strMealThumb || '/placeholder-food.jpg'}
-        alt={meal.strMeal}
-        onError={handleImageError}
-        className="w-full h-48 object-cover"
+        src={meal.strMealThumb}
+        alt={`Imagen de ${meal.strMeal}`}
+        className="w-full h-44 object-cover group-hover:opacity-90"
+        loading="lazy"
       />
-
-      <div className="p-4">
-        <h3 className="font-semibold text-lg text-gray-800 mb-2 line-clamp-2">
+      <div className="p-3">
+        <h3 className="text-lg font-semibold text-gray-800 truncate">
           {meal.strMeal}
         </h3>
-
-        <button className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition-colors">
-          Ver Receta
-        </button>
+        <p className="text-sm text-gray-500 mt-1">Ver detalles ➜</p>
       </div>
     </div>
   );

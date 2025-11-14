@@ -6,35 +6,39 @@ export default function CategoryResults({
   error,
   selectedCategory,
 }) {
-  if (!selectedCategory)
+  // 🔹 Si no se ha seleccionado categoría aún
+  if (!selectedCategory) {
     return (
-      <div className="text-center py-8">
-        <p className="text-gray-400 text-lg">
-          Selecciona una categoría para ver recetas.
-        </p>
-      </div>
+      <p className="text-gray-400 text-center">
+        Selecciona una categoría para ver las recetas.
+      </p>
     );
+  }
 
-  if (loading) return (
-    <div className="text-center py-8">
-      <p className="text-gray-400 text-lg">Cargando recetas...</p>
-    </div>
-  );
+  // 🔹 Mientras carga los datos
+  if (loading) {
+    return <p className="text-gray-400 text-center">Cargando recetas...</p>;
+  }
 
-  if (error) return (
-    <div className="text-center py-8">
-      <p className="text-red-500 text-lg">Error: {error.message}</p>
-    </div>
-  );
+  // 🔹 Si ocurre un error
+  if (error) {
+    return (
+      <p className="text-red-500 text-center">
+        Ocurrió un error: {error}
+      </p>
+    );
+  }
 
-  if (meals.length === 0) return (
-    <div className="text-center py-8">
-      <p className="text-gray-400 text-lg">
+  // 🔹 Si no hay resultados
+  if (!meals || meals.length === 0) {
+    return (
+      <p className="text-gray-500 text-center">
         No se encontraron recetas para esta categoría.
       </p>
-    </div>
-  );
+    );
+  }
 
+  // 🔹 Renderizado de los resultados
   return (
     <div>
       <h3 className="text-xl font-semibold mb-4 text-gray-800">
