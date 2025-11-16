@@ -1,44 +1,66 @@
-import React from 'react'
-import { Link } from 'react-router'
-import NavDrop from './NavDrop'
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import NavDrop from "./NavDrop";
 
 export default function Header() {
+  const location = useLocation();
+
+  const handleHomeClick = (e) => {
+    if (location.pathname === "/") {
+      // Si ya estamos en Home, recargar la página
+      e.preventDefault(); // Evita el comportamiento normal del link
+      window.location.reload();
+    }
+    // Si no, deja que Link navegue normalmente
+  };
+
+  const scrollToCategories = () => {
+    window.scrollTo({
+      top: 450,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <>
-      <header className="w-full flex items-center justify-between fixed z-50 gap-4 bg-[#D87800] p-8 text-white">
+    <header className="w-full h-28 flex items-center justify-between fixed top-0 left-0 z-9999 gap-4 bg-[#D87800] px-8 text-white">
+      <img className="bg-white h-24 rounded-2xl" src="/logo.png" alt="" />
 
-        <img
-          className="bg-white h-24 rounded-2xl"
-          src="/logo.png"
-          alt=""
-        />
+      <h1 className="font-bold text-3xl">Recetas de la abuela</h1>
 
-        <h1 className='font-bold text-3xl'>Recetas de la abuela</h1>
+      <div className="md:hidden">
+        <NavDrop />
+      </div>
 
-        <div className="md:hidden">
-          <NavDrop />
-        </div>
-
-
-       <nav className="md:flex md:gap-8 md:font-bold hidden">
-          <Link
-          to={"/"}
-            className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-          >
-            Home
-          </Link>
-
-          <Link
-          to="/categorie"
+      <nav className="md:flex md:gap-8 md:font-bold hidden">
+        <Link
+          to="/"
+          onClick={handleHomeClick}
           className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
-          >
-            Categories
-          </Link>
+        >
+          Home
+        </Link>
 
-        </nav>
+        <button
+          onClick={scrollToCategories}
+          className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
+        >
+          Categories
+        </button>
 
-      </header>
-    </>
-  )
+        <button
+          onClick={scrollToBottom}
+          className="hover:bg-white hover:text-red-800 p-2 rounded-2xl"
+        >
+          Contactanos
+        </button>
+      </nav>
+    </header>
+  );
 }
